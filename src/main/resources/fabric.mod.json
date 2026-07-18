@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "rebirthmod",
+	"version": "${version}",
+	"name": "Rebirth Mod",
+	"description": "You are the first human to tread upon this earth in an eternity. The old world has faded into oblivion with its eldritch evils, hidden under the soil of a new and wondrous world.",
+	"authors": [
+		"Toast894"
+	],
+	"contact": {
+		"homepage": "https://toastnotband.web.app",
+		"sources": "https://github.com/Toasty894/rebirth"
+	},
+	"license": "MIT",
+	"icon": "assets/rebirthmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.toasty894.rebirthmod.RebirthMod"
+		],
+		"fabric-datagen": [
+			"io.github.toasty894.rebirthmod.RebirthModDataGenerator"
+		]
+	},
+	"mixins": [
+		"rebirthmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
