@@ -1,0 +1,10 @@
+{
+  "parent": "block/cake_slice6",
+  "textures": {
+    "particle": "rebirthmod:block/passion_fruit_cake_side",
+    "bottom": "rebirthmod:block/passion_fruit_cake_bottom",
+    "top": "rebirthmod:block/passion_fruit_cake_top",
+    "side": "rebirthmod:block/passion_fruit_cake_side",
+    "inside": "rebirthmod:block/passion_fruit_cake_inner"
+  }
+}

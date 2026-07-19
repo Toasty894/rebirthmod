@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "rebirthmod:raw_pitchblende"
+    }
+  },
+  "result": {
+    "item": "rebirthmod:raw_pitchblende_block"
+  }
+}

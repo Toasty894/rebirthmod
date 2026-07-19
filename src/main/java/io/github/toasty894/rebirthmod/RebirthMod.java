@@ -1,5 +1,8 @@
 package io.github.toasty894.rebirthmod;
 
+import io.github.toasty894.rebirthmod.block.ModBlocks;
+import io.github.toasty894.rebirthmod.item.ModItemGroups;
+import io.github.toasty894.rebirthmod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
@@ -13,7 +16,13 @@ public class RebirthMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 		LOGGER.info("Hello Fabric world!");
+
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+
+		ModItemGroups.registerItemGroups();
 	}
 	public static Identifier id(String path) {
 		return new Identifier(MOD_ID, path);

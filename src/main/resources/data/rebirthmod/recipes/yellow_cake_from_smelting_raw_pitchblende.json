@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "yellow_cake",
+  "ingredient": {
+    "item": "rebirthmod:raw_pitchblende_block"
+  },
+  "result": "rebirthmod:yellow_cake"
+}

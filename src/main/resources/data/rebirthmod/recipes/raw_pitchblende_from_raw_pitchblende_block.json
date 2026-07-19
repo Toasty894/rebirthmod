@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "rebirthmod:raw_pitchblende_block"
+    }
+  ],
+  "result": {
+    "item": "rebirthmod:raw_pitchblende",
+    "count": 9
+  }
+}

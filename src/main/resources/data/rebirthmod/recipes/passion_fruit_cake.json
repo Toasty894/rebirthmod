@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:milk_bucket"
+    },
+    "B": {
+      "item": "minecraft:sugar"
+    },
+    "C": {
+      "item": "minecraft:wheat"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "P": {
+      "item": "rebirthmod:passion_fruit"
+    }
+  },
+  "pattern": [
+    "PAP",
+    "BEB",
+    "CCC"
+  ],
+  "result": {
+    "item": "rebirthmod:passion_fruit_cake"
+  }
+}

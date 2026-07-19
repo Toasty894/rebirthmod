@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "rebirthmod:pitchblende_ingot"
+    }
+  },
+  "result": {
+    "item": "rebirthmod:pitchblende_block"
+  }
+}
