@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R",
+    "W"
+  ],
+  "key": {
+    "R": {
+      "item": "rebirthmod:raw_pitchblende_block"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "rebirthmod:yellow_cake"
+  }
+}

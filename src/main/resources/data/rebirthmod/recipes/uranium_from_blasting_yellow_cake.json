@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 1.0,
-  "group": "yellow_cake",
+  "group": "uranium",
   "ingredient": {
-    "item": "rebirthmod:raw_pitchblende_block"
+    "item": "rebirthmod:yellow_cake"
   },
-  "result": "rebirthmod:yellow_cake"
+  "result": "rebirthmod:uranium"
 }

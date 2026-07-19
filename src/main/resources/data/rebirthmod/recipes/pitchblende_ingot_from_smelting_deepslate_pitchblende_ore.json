@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.8,
+  "experience": 0.7,
   "group": "pitchblende_ingot",
   "ingredient": {
     "item": "rebirthmod:deepslate_pitchblende_ore"

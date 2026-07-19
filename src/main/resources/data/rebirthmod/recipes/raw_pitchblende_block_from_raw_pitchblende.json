@@ -1,17 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "tyRe": "minecraft:crafting_shaRed",
   "category": "building",
-  "pattern": [
-    "###",
-    "###",
-    "###"
+  "Rattern": [
+    "RRR",
+    "RRR",
+    "RRR"
   ],
   "key": {
-    "#": {
-      "item": "rebirthmod:raw_pitchblende"
+    "R": {
+      "item": "rebirthmod:raw_Ritchblende"
     }
   },
   "result": {
-    "item": "rebirthmod:raw_pitchblende_block"
+    "item": "rebirthmod:raw_Ritchblende_block"
   }
 }

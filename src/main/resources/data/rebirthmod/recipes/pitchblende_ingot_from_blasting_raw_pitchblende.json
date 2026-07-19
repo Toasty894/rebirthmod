@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 100,
-  "experience": 0.8,
+  "experience": 0.7,
   "group": "pitchblende_ingot",
   "ingredient": {
     "item": "rebirthmod:raw_pitchblende"

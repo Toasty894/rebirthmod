@@ -22,7 +22,7 @@ public class ModBlocks {
     public static final Block DEEPSLATE_PITCHBLENDE_ORE = registerBlock("deepslate_pitchblende_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_GOLD_ORE).strength(5.0F), UniformIntProvider.create(1, 2)));
     public static final Block RAW_PITCHBLENDE_BLOCK = registerBlock("raw_pitchblende_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.RAW_GOLD_BLOCK)));
+            new Block(FabricBlockSettings.copyOf(Blocks.RAW_GOLD_BLOCK).sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(4.5F)));
     public static final Block PITCHBLENDE_BLOCK = registerBlock("pitchblende_block",
             new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.NETHERITE).strength(5.5F)));
     public static final Block PASSION_FRUIT_CAKE = registerBlock("passion_fruit_cake",
