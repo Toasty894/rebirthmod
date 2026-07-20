@@ -3,6 +3,8 @@ package io.github.toasty894.rebirthmod;
 import io.github.toasty894.rebirthmod.block.ModBlocks;
 import io.github.toasty894.rebirthmod.item.ModItemGroups;
 import io.github.toasty894.rebirthmod.item.ModItems;
+import io.github.toasty894.rebirthmod.radiation.RadiationRegistry;
+import io.github.toasty894.rebirthmod.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
@@ -19,10 +21,14 @@ public class RebirthMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
+		ModSounds.registerModSounds();
+
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 
 		ModItemGroups.registerItemGroups();
+
+		RadiationRegistry.registerRadiationLevels();
 	}
 	public static Identifier id(String path) {
 		return new Identifier(MOD_ID, path);

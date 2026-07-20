@@ -1,0 +1,9 @@
+{
+  "geiger_click": {
+    "category": "player",
+    "subtitle": "subtitles.rebirthmod.geiger_click",
+    "sounds": [
+      "rebirthmod:geiger_click"
+    ]
+  }
+}
