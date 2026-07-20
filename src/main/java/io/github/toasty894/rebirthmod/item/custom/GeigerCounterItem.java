@@ -1,6 +1,5 @@
 package io.github.toasty894.rebirthmod.item.custom;
 
-import io.github.toasty894.rebirthmod.block.ModBlocks;
 import io.github.toasty894.rebirthmod.radiation.RadiationRegistry;
 import io.github.toasty894.rebirthmod.sound.ModSounds;
 import net.minecraft.block.BlockState;
