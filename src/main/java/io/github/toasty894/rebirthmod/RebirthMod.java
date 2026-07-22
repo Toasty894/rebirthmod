@@ -5,6 +5,7 @@ import io.github.toasty894.rebirthmod.item.ModItemGroups;
 import io.github.toasty894.rebirthmod.item.ModItems;
 import io.github.toasty894.rebirthmod.radiation.RadiationRegistry;
 import io.github.toasty894.rebirthmod.sound.ModSounds;
+import io.github.toasty894.rebirthmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
@@ -29,6 +30,7 @@ public class RebirthMod implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 
 		RadiationRegistry.registerRadiationLevels();
+		ModWorldGeneration.generateModWorldGen();
 	}
 	public static Identifier id(String path) {
 		return new Identifier(MOD_ID, path);

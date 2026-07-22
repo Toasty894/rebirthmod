@@ -40,9 +40,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.GALENA_ORE)
                 .add(ModBlocks.DEEPSLATE_GALENA_ORE)
                 .add(ModBlocks.RAW_GALENA_BLOCK)
-                .add(ModBlocks.LEAD_BLOCK);
+                .add(ModBlocks.LEAD_BLOCK)
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.SCHEELITE_ORE)
                 .add(ModBlocks.DEEPSLATE_SCHEELITE_ORE)
                 .add(ModBlocks.RAW_SCHEELITE_BLOCK)
