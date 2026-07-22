@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "rebirthmod:block/deepslate_pitchblende_ore"
-  }
-}

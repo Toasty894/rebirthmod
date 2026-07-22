@@ -19,19 +19,24 @@ public class ModItemGroups {
 
                         // All the magical and technological stuff will be in this tab
 
-                        // _Tools and Weapons_
+                        // Weapons, Armors & Tools
 
-                            // Weapons
+                            // Tools
                         entries.add(ModItems.PITCHBLENDE_SWORD);
                         entries.add(ModItems.PITCHBLENDE_SHOVEL);
                         entries.add(ModItems.PITCHBLENDE_PICKAXE);
                         entries.add(ModItems.PITCHBLENDE_AXE);
                         entries.add(ModItems.PITCHBLENDE_HOE);
 
-                            // Tools
+                            // Armors
+                        entries.add(ModItems.PITCHBLENDE_HELMET);
+                        entries.add(ModItems.PITCHBLENDE_CHESTPLATE);
+                        entries.add(ModItems.PITCHBLENDE_LEGGINGS);
+                        entries.add(ModItems.PITCHBLENDE_BOOTS);
+
+                            // Mod Tools
                         entries.add(ModItems.GEIGER_COUNTER);
 
-                        // Armors
 
                         // Miscellaneous and relics
 
@@ -48,6 +53,16 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RAW_PITCHBLENDE_BLOCK);
                         entries.add(ModBlocks.PITCHBLENDE_BLOCK);
 
+                        entries.add(ModBlocks.GALENA_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_GALENA_ORE);
+                        entries.add(ModBlocks.RAW_GALENA_BLOCK);
+                        entries.add(ModBlocks.LEAD_BLOCK);
+
+                        entries.add(ModBlocks.SCHEELITE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_SCHEELITE_ORE);
+                        entries.add(ModBlocks.RAW_SCHEELITE_BLOCK);
+                        entries.add(ModBlocks.TUNGSTEN_BLOCK);
+
                     }).build());
 
     public static final ItemGroup REBIRTH_WILDS = Registry.register(Registries.ITEM_GROUP,
@@ -57,6 +72,7 @@ public class ModItemGroups {
 
                         //Natural items, food, plants and mobs
                         entries.add(ModItems.PASSION_FRUIT);
+                        entries.add(ModItems.PASSION_FRUIT_JUICE);
                         entries.add(ModBlocks.PASSION_FRUIT_CAKE);
 
                     }).build());
@@ -66,6 +82,12 @@ public class ModItemGroups {
             new Identifier(RebirthMod.MOD_ID, "catalysts"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.rebirth_catalysts"))
                     .icon(() -> new ItemStack(ModItems.PITCHBLENDE_INGOT)).entries((displayContext, entries) -> {
+
+                        entries.add(ModItems.GALENA);
+                        entries.add(ModItems.LEAD_INGOT);
+
+                        entries.add(ModItems.SCHEELITE);
+                        entries.add(ModItems.TUNGSTEN_INGOT);
 
                         entries.add(ModItems.RAW_PITCHBLENDE);
                         entries.add(ModItems.PITCHBLENDE_INGOT);

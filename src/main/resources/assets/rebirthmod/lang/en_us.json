@@ -11,18 +11,29 @@
   "item.rebirthmod.pitchblende_axe": "Pitchblende Axe",
   "item.rebirthmod.pitchblende_hoe": "Pitchblende Hoe",
 
+  "item.rebirthmod.pitchblende_helmet": "Pitchblende Helmet",
+  "item.rebirthmod.pitchblende_chestplate": "Pitchblende Chestplate",
+  "item.rebirthmod.pitchblende_leggings": "Pitchblende Leggings",
+  "item.rebirthmod.pitchblende_boots": "Pitchblende Boots",
+
   "item.rebirthmod.geiger_counter": "Geiger Counter",
 
   "item.rebirthmod.passion_fruit": "Passion Fruit",
+  "item.rebirthmod.passion_fruit_juice": "Passion Fruit Juice",
+  "block.rebirthmod.passion_fruit_cake": "Passion Fruit Cake",
 
   "block.rebirthmod.pitchblende_ore": "Pitchblende Ore",
   "block.rebirthmod.deepslate_pitchblende_ore": "Deepslate Pitchblende Ore",
   "block.rebirthmod.raw_pitchblende_block": "Block of Raw Pitchblende",
   "block.rebirthmod.pitchblende_block": "Block of Pitchblende",
-  "block.rebirthmod.passion_fruit_cake": "Passion Fruit Cake",
 
   "itemgroup.rebirth": "Rebirth",
   "itemgroup.rebirth_foundations": "Rebirth Foundations",
   "itemgroup.rebirth_wilds": "Rebirth Wilds",
-  "itemgroup.rebirth_catalysts": "Rebirth Catalysts"
+  "itemgroup.rebirth_catalysts": "Rebirth Catalysts",
+
+  "tooltip.rebirthmod.geiger_counter": "Detects radiation up to 64 blocks in your line of sight.",
+  "tooltip.rebirthmod.passion_fruit_juice": "So refreshing and revitalizing.",
+  "tooltip.rebirthmod.passion_fruit_cake": "A yummy yellow cake.",
+  "tooltip.rebirthmod.hold_shift": "Press §6SHIFT§7 for details..."
 }

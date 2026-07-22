@@ -3,14 +3,19 @@ package io.github.toasty894.rebirthmod.item.custom;
 import io.github.toasty894.rebirthmod.radiation.RadiationRegistry;
 import io.github.toasty894.rebirthmod.sound.ModSounds;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -46,7 +51,7 @@ public class GeigerCounterItem extends Item {
 
             double highestSignal = 0.0;
             BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-            for (double d = 1.0; d <= MAX_SEARCH_DISTANCE; d += 0.5) {
+            for (double d = 1.0; d <= MAX_SEARCH_DISTANCE; d += 1.0) {
                 Vec3d checkVec = eyePos.add(lookVec.multiply(d));
 
                 int coneRadius = Math.min(3, (int) (d / 12.0));
@@ -69,15 +74,27 @@ public class GeigerCounterItem extends Item {
 
                             // Containers
                             if (state.hasBlockEntity() && world.getBlockEntity(mutablePos) instanceof Inventory inventory) {
+                                double totalContainerIntensity = 0.0;
+                                int maxBaseRange = 0;
+                                int totalItemCount = 0;
+
                                 for (int i = 0; i < inventory.size(); i++) {
                                     ItemStack itemStack = inventory.getStack(i);
-                                    if (!itemStack.isEmpty() && RadiationRegistry.isRadioactive(itemStack.getItem())) {
-                                        RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemStack);
-                                        if (d < data.maxRange()) {
-                                            float quantityMultiplier = 1.0f + (itemStack.getCount() * 0.005f);
-                                            double signal = (1.0 - (d / data.maxRange())) * (data.intensity() * quantityMultiplier);
-                                            if (signal > highestSignal) highestSignal = signal;
-                                        }
+                                    RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemStack);
+                                    if (data != null) {
+                                        totalContainerIntensity += data.intensity() * itemStack.getCount();
+                                        totalItemCount += itemStack.getCount();
+                                        if (data.maxRange() > maxBaseRange) maxBaseRange = data.maxRange();
+                                    }
+                                }
+                                if (totalItemCount > 0) {
+                                    double rangeBoost = 1.0 + Math.min(0.5, Math.sqrt(totalItemCount - 1) * 0.04);
+                                    double effectiveMaxRange = maxBaseRange * rangeBoost;
+
+                                    if (d < effectiveMaxRange) {
+                                        double scaledIntensity = Math.sqrt(totalContainerIntensity);
+                                        double signal = (1.0 - (d / effectiveMaxRange)) * scaledIntensity;
+                                        if (signal > highestSignal) highestSignal = signal;
                                     }
                                 }
                             }
@@ -86,7 +103,7 @@ public class GeigerCounterItem extends Item {
                     }
                 }
 
-                // Dropped Items and Item Frames
+                // Dropped Items, Item Frames and Living Entities
 
                 BlockPos centerPos = BlockPos.ofFloored(checkVec);
                 Box searchBox = new Box(centerPos).expand(coneRadius);
@@ -94,10 +111,18 @@ public class GeigerCounterItem extends Item {
                 // Dropped Items
                 List<ItemEntity> droppedItems = world.getEntitiesByClass(ItemEntity.class, searchBox, e -> true);
                 for (ItemEntity itemEntity : droppedItems) {
-                    RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemEntity.getStack());
-                    if (data != null && d <= data.maxRange()) {
-                        double signal = (1.0 - (d / data.maxRange())) * data.intensity();
-                        if (signal > highestSignal) highestSignal = signal;
+                    ItemStack itemStack = itemEntity.getStack();
+                    RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemStack);
+                    if (data != null) {
+                        int count = itemStack.getCount();
+                        double rangeBoost = 1.0 + Math.min(0.5, Math.sqrt(count - 1) * 0.04);
+                        double effectiveMaxRange = data.maxRange() * rangeBoost;
+
+                        if (d <= effectiveMaxRange) {
+                            double scaledIntensity = Math.sqrt(data.intensity() * count);
+                            double signal = (1.0 - (d / effectiveMaxRange)) * scaledIntensity;
+                            if (signal > highestSignal) highestSignal = signal;
+                        }
                     }
                 }
 
@@ -109,6 +134,67 @@ public class GeigerCounterItem extends Item {
                         double signal = (1.0 - (d / data.maxRange())) * data.intensity();
                         if (signal > highestSignal) highestSignal = signal;
                     }
+                }
+
+                // Living Entities
+                List<LivingEntity> targetLivingEntity = world.getEntitiesByClass(LivingEntity.class, searchBox, e -> e != player);
+                for (LivingEntity target : targetLivingEntity) {
+                    double totalEntityIntensity = 0.0;
+                    int maxBaseRange = 0;
+                    int totalItemCount = 0;
+
+                    if (RadiationRegistry.isRadioactive(target.getType())) {
+                        RadiationRegistry.RadiationData entityData = RadiationRegistry.get(target.getType());
+                        totalEntityIntensity += entityData.intensity();
+                        totalItemCount += 1;
+                        if (entityData.maxRange() > maxBaseRange) maxBaseRange = entityData.maxRange();
+                    }
+
+                    for (ItemStack itemStack : target.getItemsEquipped()) {
+                        RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemStack);
+                        if (data != null) {
+                            totalEntityIntensity += data.intensity() * itemStack.getCount();
+                            totalItemCount += itemStack.getCount();
+                            if (data.maxRange() > maxBaseRange) maxBaseRange = data.maxRange();
+                        }
+                    }
+
+                    if (target instanceof PlayerEntity targetPlayer) {
+                        Inventory targetInventory = targetPlayer.getInventory();
+                        for (int i = 0; i < targetInventory.size(); i++) {
+                            ItemStack itemStack = targetInventory.getStack(i);
+                            RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemStack);
+                            if (data != null) {
+                                totalEntityIntensity += data.intensity() * itemStack.getCount();
+                                totalItemCount += itemStack.getCount();
+                                if (data.maxRange() > maxBaseRange) maxBaseRange = data.maxRange();
+                            }
+                        }
+                    }
+
+                    else if (target instanceof Inventory inventory) {
+                        for (int i = 0; i < inventory.size(); i++) {
+                            ItemStack itemStack = inventory.getStack(i);
+                            RadiationRegistry.RadiationData data = RadiationRegistry.getRadiationData(itemStack);
+                            if (data != null) {
+                                totalEntityIntensity += data.intensity() * itemStack.getCount();
+                                totalItemCount += itemStack.getCount();
+                                if (data.maxRange() > maxBaseRange) maxBaseRange = data.maxRange();
+                            }
+                        }
+                    }
+
+                    if (totalItemCount > 0) {
+                        double rangeBoost = 1.0 + Math.min(0.5, Math.sqrt(totalItemCount - 1) * 0.04);
+                        double effectiveMaxRange = maxBaseRange * rangeBoost;
+
+                        if (d <= effectiveMaxRange) {
+                            double scaledIntensity = Math.sqrt(totalEntityIntensity);
+                            double signal = (1.0 - (d / effectiveMaxRange)) * scaledIntensity;
+                            if (signal > highestSignal) highestSignal = signal;
+                        }
+                    }
+
                 }
 
                 if (highestSignal >= 1.5) break;
@@ -130,5 +216,14 @@ public class GeigerCounterItem extends Item {
 
         }
         super.inventoryTick(stack, world, entity, slot, selected);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.rebirthmod.geiger_counter").formatted(Formatting.GOLD));
+        } else {
+            tooltip.add(Text.translatable("tooltip.rebirthmod.hold_shift").formatted(Formatting.GRAY));
+        }
     }
 }

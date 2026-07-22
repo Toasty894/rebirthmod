@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "rebirthmod:pitchblende_block",
-    "rebirthmod:raw_pitchblende_block",
-    "rebirthmod:pitchblende_ore",
-    "rebirthmod:deepslate_pitchblende_ore"
-  ]
-}
