@@ -6,8 +6,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
@@ -40,6 +42,99 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
+        // Wood
+
+        // ACAI WOOD RECIPES
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ACAI_PLANKS, 4)
+                .input(ModBlocks.ACAI_LOG)
+                .criterion(hasItem(ModBlocks.ACAI_LOG), conditionsFromItem(ModBlocks.ACAI_LOG))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ACAI_PLANKS) + "_from_log"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ACAI_PLANKS, 4)
+                .input(ModBlocks.STRIPPED_ACAI_LOG)
+                .criterion(hasItem(ModBlocks.STRIPPED_ACAI_LOG), conditionsFromItem(ModBlocks.STRIPPED_ACAI_LOG))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ACAI_PLANKS) + "_from_stripped_log"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ACAI_PLANKS, 4)
+                .input(ModBlocks.ACAI_WOOD)
+                .criterion(hasItem(ModBlocks.ACAI_WOOD), conditionsFromItem(ModBlocks.ACAI_WOOD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ACAI_PLANKS) + "_from_wood"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ACAI_PLANKS, 4)
+                .input(ModBlocks.STRIPPED_ACAI_WOOD)
+                .criterion(hasItem(ModBlocks.STRIPPED_ACAI_WOOD), conditionsFromItem(ModBlocks.STRIPPED_ACAI_WOOD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ACAI_PLANKS) + "_from_stripped_wood"));
+
+        // 4 Logs -> 3 Wood
+        offerBarkBlockRecipe(exporter, ModBlocks.ACAI_WOOD, ModBlocks.ACAI_LOG);
+        offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_ACAI_WOOD, ModBlocks.STRIPPED_ACAI_LOG);
+
+        createStairsRecipe(ModBlocks.ACAI_STAIRS, Ingredient.ofItems(ModBlocks.ACAI_PLANKS))
+                .criterion(hasItem(ModBlocks.ACAI_PLANKS), conditionsFromItem(ModBlocks.ACAI_PLANKS))
+                .offerTo(exporter);
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ACAI_SLAB, Ingredient.ofItems(ModBlocks.ACAI_PLANKS))
+                .criterion(hasItem(ModBlocks.ACAI_PLANKS), conditionsFromItem(ModBlocks.ACAI_PLANKS))
+                .offerTo(exporter);
+        createFenceRecipe(ModBlocks.ACAI_FENCE, Ingredient.ofItems(ModBlocks.ACAI_PLANKS))
+                .criterion(hasItem(ModBlocks.ACAI_PLANKS), conditionsFromItem(ModBlocks.ACAI_PLANKS))
+                .offerTo(exporter);
+        createFenceGateRecipe(ModBlocks.ACAI_FENCE_GATE, Ingredient.ofItems(ModBlocks.ACAI_PLANKS))
+                .criterion(hasItem(ModBlocks.ACAI_PLANKS), conditionsFromItem(ModBlocks.ACAI_PLANKS))
+                .offerTo(exporter);
+        createDoorRecipe(ModBlocks.ACAI_DOOR, Ingredient.ofItems(ModBlocks.ACAI_PLANKS))
+                .criterion(hasItem(ModBlocks.ACAI_PLANKS), conditionsFromItem(ModBlocks.ACAI_PLANKS))
+                .offerTo(exporter);
+        createTrapdoorRecipe(ModBlocks.ACAI_TRAPDOOR, Ingredient.ofItems(ModBlocks.ACAI_PLANKS))
+                .criterion(hasItem(ModBlocks.ACAI_PLANKS), conditionsFromItem(ModBlocks.ACAI_PLANKS))
+                .offerTo(exporter);
+
+        // CASHEW WOOD RECIPES
+
+        // All Log/Wood variants -> 4 Planks
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CASHEW_PLANKS, 4)
+                .input(ModBlocks.CASHEW_LOG)
+                .criterion(hasItem(ModBlocks.CASHEW_LOG), conditionsFromItem(ModBlocks.CASHEW_LOG))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CASHEW_PLANKS) + "_from_log"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CASHEW_PLANKS, 4)
+                .input(ModBlocks.STRIPPED_CASHEW_LOG)
+                .criterion(hasItem(ModBlocks.STRIPPED_CASHEW_LOG), conditionsFromItem(ModBlocks.STRIPPED_CASHEW_LOG))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CASHEW_PLANKS) + "_from_stripped_log"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CASHEW_PLANKS, 4)
+                .input(ModBlocks.CASHEW_WOOD)
+                .criterion(hasItem(ModBlocks.CASHEW_WOOD), conditionsFromItem(ModBlocks.CASHEW_WOOD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CASHEW_PLANKS) + "_from_wood"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CASHEW_PLANKS, 4)
+                .input(ModBlocks.STRIPPED_CASHEW_WOOD)
+                .criterion(hasItem(ModBlocks.STRIPPED_CASHEW_WOOD), conditionsFromItem(ModBlocks.STRIPPED_CASHEW_WOOD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CASHEW_PLANKS) + "_from_stripped_wood"));
+
+        // 4 Logs -> 3 Wood (Vanilla Style)
+        offerBarkBlockRecipe(exporter, ModBlocks.CASHEW_WOOD, ModBlocks.CASHEW_LOG);
+        offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_CASHEW_WOOD, ModBlocks.STRIPPED_CASHEW_LOG);
+
+        createStairsRecipe(ModBlocks.CASHEW_STAIRS, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
+                .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
+                .offerTo(exporter);
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CASHEW_SLAB, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
+                .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
+                .offerTo(exporter);
+        createFenceRecipe(ModBlocks.CASHEW_FENCE, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
+                .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
+                .offerTo(exporter);
+        createFenceGateRecipe(ModBlocks.CASHEW_FENCE_GATE, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
+                .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
+                .offerTo(exporter);
+        createDoorRecipe(ModBlocks.CASHEW_DOOR, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
+                .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
+                .offerTo(exporter);
+        createTrapdoorRecipe(ModBlocks.CASHEW_TRAPDOOR, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
+                .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
+                .offerTo(exporter);
+
         // Pitchblende recipes
         offerSmelting(exporter, PITCHBLENDE_SMELTABLES, RecipeCategory.MISC, ModItems.PITCHBLENDE_INGOT,
                 0.7f, 200, "pitchblende_ingot");

@@ -1,6 +1,7 @@
 package io.github.toasty894.rebirthmod.datagen;
 
 import io.github.toasty894.rebirthmod.block.ModBlocks;
+import io.github.toasty894.rebirthmod.datagen.util.ModelUtils;
 import io.github.toasty894.rebirthmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -28,6 +29,38 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SCHEELITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCHEELITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_BLOCK);
+
+        // ACAI WOOD
+        blockStateModelGenerator.registerLog(ModBlocks.ACAI_LOG).log(ModBlocks.ACAI_LOG).wood(ModBlocks.ACAI_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_ACAI_LOG).log(ModBlocks.STRIPPED_ACAI_LOG).wood(ModBlocks.STRIPPED_ACAI_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerLeaves(blockStateModelGenerator, ModBlocks.ACAI_LEAVES);
+
+        ModelUtils.registerStairs(blockStateModelGenerator, ModBlocks.ACAI_STAIRS, ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerSlab(blockStateModelGenerator, ModBlocks.ACAI_SLAB, ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerButton(blockStateModelGenerator, ModBlocks.ACAI_BUTTON, ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerPressurePlate(blockStateModelGenerator, ModBlocks.ACAI_PRESSURE_PLATE, ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerFence(blockStateModelGenerator, ModBlocks.ACAI_FENCE, ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerFenceGate(blockStateModelGenerator, ModBlocks.ACAI_FENCE_GATE, ModBlocks.ACAI_PLANKS);
+        ModelUtils.registerDoor(blockStateModelGenerator, ModBlocks.ACAI_DOOR);
+        ModelUtils.registerTrapdoor(blockStateModelGenerator, ModBlocks.ACAI_TRAPDOOR);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.ACAI_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        // CASHEW WOOD
+        blockStateModelGenerator.registerLog(ModBlocks.CASHEW_LOG).log(ModBlocks.CASHEW_LOG).wood(ModBlocks.CASHEW_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CASHEW_LOG).log(ModBlocks.STRIPPED_CASHEW_LOG).wood(ModBlocks.STRIPPED_CASHEW_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerLeaves(blockStateModelGenerator, ModBlocks.CASHEW_LEAVES);
+
+        ModelUtils.registerStairs(blockStateModelGenerator, ModBlocks.CASHEW_STAIRS, ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerSlab(blockStateModelGenerator, ModBlocks.CASHEW_SLAB, ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerButton(blockStateModelGenerator, ModBlocks.CASHEW_BUTTON, ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerPressurePlate(blockStateModelGenerator, ModBlocks.CASHEW_PRESSURE_PLATE, ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerFence(blockStateModelGenerator, ModBlocks.CASHEW_FENCE, ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerFenceGate(blockStateModelGenerator, ModBlocks.CASHEW_FENCE_GATE, ModBlocks.CASHEW_PLANKS);
+        ModelUtils.registerDoor(blockStateModelGenerator, ModBlocks.CASHEW_DOOR);
+        ModelUtils.registerTrapdoor(blockStateModelGenerator, ModBlocks.CASHEW_TRAPDOOR);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.CASHEW_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override
@@ -62,6 +95,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.PASSION_FRUIT_CAKE.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RELIC.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(ModBlocks.ACAI_SAPLING.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.CASHEW_SAPLING.asItem(), Models.GENERATED);
     }
 }
 

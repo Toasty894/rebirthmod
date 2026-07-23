@@ -18,6 +18,9 @@
 		"main": [
 			"io.github.toasty894.rebirthmod.RebirthMod"
 		],
+		"client": [
+			"io.github.toasty894.rebirthmod.RebirthModClient"
+		],
 		"fabric-datagen": [
 			"io.github.toasty894.rebirthmod.RebirthModDataGenerator"
 		]

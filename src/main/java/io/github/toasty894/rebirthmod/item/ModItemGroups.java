@@ -48,6 +48,42 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModBlocks.PITCHBLENDE_BLOCK)).entries((displayContext, entries) -> {
 
                         //All blocks with cube form
+
+                        // Wood
+
+                        // Acai Wood
+                        entries.add(ModBlocks.ACAI_LOG);
+                        entries.add(ModBlocks.ACAI_WOOD);
+                        entries.add(ModBlocks.STRIPPED_ACAI_LOG);
+                        entries.add(ModBlocks.STRIPPED_ACAI_WOOD);
+                        entries.add(ModBlocks.ACAI_PLANKS);
+                        entries.add(ModBlocks.ACAI_LEAVES);
+                        entries.add(ModBlocks.ACAI_STAIRS);
+                        entries.add(ModBlocks.ACAI_SLAB);
+                        entries.add(ModBlocks.ACAI_BUTTON);
+                        entries.add(ModBlocks.ACAI_PRESSURE_PLATE);
+                        entries.add(ModBlocks.ACAI_FENCE);
+                        entries.add(ModBlocks.ACAI_FENCE_GATE);
+                        entries.add(ModBlocks.ACAI_DOOR);
+                        entries.add(ModBlocks.ACAI_TRAPDOOR);
+
+                        // Cashew Wood
+                        entries.add(ModBlocks.CASHEW_LOG);
+                        entries.add(ModBlocks.CASHEW_WOOD);
+                        entries.add(ModBlocks.STRIPPED_CASHEW_LOG);
+                        entries.add(ModBlocks.STRIPPED_CASHEW_WOOD);
+                        entries.add(ModBlocks.CASHEW_PLANKS);
+                        entries.add(ModBlocks.CASHEW_LEAVES);
+                        entries.add(ModBlocks.CASHEW_STAIRS);
+                        entries.add(ModBlocks.CASHEW_SLAB);
+                        entries.add(ModBlocks.CASHEW_BUTTON);
+                        entries.add(ModBlocks.CASHEW_PRESSURE_PLATE);
+                        entries.add(ModBlocks.CASHEW_FENCE);
+                        entries.add(ModBlocks.CASHEW_FENCE_GATE);
+                        entries.add(ModBlocks.CASHEW_DOOR);
+                        entries.add(ModBlocks.CASHEW_TRAPDOOR);
+
+                        // Ores
                         entries.add(ModBlocks.PITCHBLENDE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PITCHBLENDE_ORE);
                         entries.add(ModBlocks.RAW_PITCHBLENDE_BLOCK);
@@ -71,6 +107,11 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
 
                         //Natural items, food, plants and mobs
+                        // Saplings & Plants
+                        entries.add(ModBlocks.ACAI_SAPLING);
+                        entries.add(ModBlocks.CASHEW_SAPLING);
+
+                        // Food & Natural Items
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.PASSION_FRUIT_JUICE);
                         entries.add(ModBlocks.PASSION_FRUIT_CAKE);
