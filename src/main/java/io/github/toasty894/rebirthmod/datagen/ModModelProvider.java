@@ -21,12 +21,12 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GALENA_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_GALENA_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_GALENA_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GALENA_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_BLOCK);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCHEELITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SCHEELITE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_SCHEELITE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCHEELITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_BLOCK);
     }
 
@@ -60,5 +60,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PASSION_FRUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.PASSION_FRUIT_JUICE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.PASSION_FRUIT_CAKE.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.RELIC.asItem(), Models.GENERATED);
     }
 }
+

@@ -65,7 +65,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.LEAD_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.LEAD_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.GALENA,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_GALENA_BLOCK);
+                RecipeCategory.BUILDING_BLOCKS, ModBlocks.GALENA_BLOCK);
 
         // Scheelite main recipes
         offerSmelting(exporter, SCHEELITE_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
@@ -76,7 +76,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ModBlocks.TUNGSTEN_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.SCHEELITE,
-                RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_SCHEELITE_BLOCK);
+                RecipeCategory.BUILDING_BLOCKS, ModBlocks.SCHEELITE_BLOCK);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.GEIGER_COUNTER, 1)
                 .pattern("IPI")

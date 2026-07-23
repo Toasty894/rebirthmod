@@ -25,15 +25,15 @@ public class ModPlacedFeatures {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         register(context, PITCHBLENDE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PITCHBLENDE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(8,
+                ModOrePlacement.modifiersWithCount(6,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(30))));
 
         register(context, GALENA_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GALENA_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(16,
+                ModOrePlacement.modifiersWithCount(10,
                 HeightRangePlacementModifier.uniform(YOffset.fixed(-32), YOffset.fixed(80))));
 
         register(context, SCHEELITE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SCHEELITE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(6,
+                ModOrePlacement.modifiersWithCount(2,
                 HeightRangePlacementModifier.trapezoid(YOffset.fixed(-64), YOffset.fixed(0))));
 
         register(context, GALENA_CLUSTER_PLACED_KEY,

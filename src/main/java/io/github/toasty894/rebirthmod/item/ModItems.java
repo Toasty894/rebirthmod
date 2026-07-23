@@ -3,6 +3,7 @@ package io.github.toasty894.rebirthmod.item;
 import io.github.toasty894.rebirthmod.RebirthMod;
 import io.github.toasty894.rebirthmod.item.custom.GeigerCounterItem;
 import io.github.toasty894.rebirthmod.item.custom.PassionFruitJuiceItem;
+import io.github.toasty894.rebirthmod.item.custom.RelicItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -33,6 +34,9 @@ public class ModItems {
 
     public static final Item GEIGER_COUNTER = registerItem("geiger_counter",
             new GeigerCounterItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item RELIC = registerItem("relic",
+            new RelicItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item GALENA = registerItem("galena", new Item(new FabricItemSettings()));
     public static final Item LEAD_INGOT = registerItem("lead_ingot", new Item(new FabricItemSettings()));

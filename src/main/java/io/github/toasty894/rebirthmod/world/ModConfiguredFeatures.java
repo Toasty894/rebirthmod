@@ -41,15 +41,15 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> galenaClusterTargets = List.of(
                 OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.GALENA_ORE.getDefaultState()),
                 OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_GALENA_ORE.getDefaultState()),
-                OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.RAW_GALENA_BLOCK.getDefaultState()),
-                OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.RAW_GALENA_BLOCK.getDefaultState())
+                OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.GALENA_BLOCK.getDefaultState()),
+                OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.GALENA_BLOCK.getDefaultState())
         );
 
-        register(context, GALENA_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldGalenaOres, 16));
-        register(context, GALENA_CLUSTER_KEY, Feature.ORE, new OreFeatureConfig(galenaClusterTargets, 45));
+        register(context, GALENA_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldGalenaOres, 8));
+        register(context, GALENA_CLUSTER_KEY, Feature.ORE, new OreFeatureConfig(galenaClusterTargets, 32));
 
-        register(context, PITCHBLENDE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldPitchblendeOres, 10));
-        register(context, SCHEELITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldScheeliteOres, 6));
+        register(context, PITCHBLENDE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldPitchblendeOres, 6));
+        register(context, SCHEELITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldScheeliteOres, 4));
 
     }
 

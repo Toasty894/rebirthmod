@@ -37,8 +37,8 @@ public class ModItemGroups {
                             // Mod Tools
                         entries.add(ModItems.GEIGER_COUNTER);
 
-
                         // Miscellaneous and relics
+                        entries.add(ModItems.RELIC);
 
                     }).build());
 
@@ -55,12 +55,12 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GALENA_ORE);
                         entries.add(ModBlocks.DEEPSLATE_GALENA_ORE);
-                        entries.add(ModBlocks.RAW_GALENA_BLOCK);
+                        entries.add(ModBlocks.GALENA_BLOCK);
                         entries.add(ModBlocks.LEAD_BLOCK);
 
                         entries.add(ModBlocks.SCHEELITE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_SCHEELITE_ORE);
-                        entries.add(ModBlocks.RAW_SCHEELITE_BLOCK);
+                        entries.add(ModBlocks.SCHEELITE_BLOCK);
                         entries.add(ModBlocks.TUNGSTEN_BLOCK);
 
                     }).build());

@@ -30,7 +30,7 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.GOLD_ORE).strength(4.0F), UniformIntProvider.create(0, 2)));
     public static final Block DEEPSLATE_GALENA_ORE = registerBlock("deepslate_galena_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_GOLD_ORE).strength(5.0F), UniformIntProvider.create(1, 2)));
-    public static final Block RAW_GALENA_BLOCK = registerBlock("raw_galena_block",
+    public static final Block GALENA_BLOCK = registerBlock("raw_galena_block",
             new Block(FabricBlockSettings.copyOf(Blocks.RAW_GOLD_BLOCK).sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(5.0F)));
     public static final Block LEAD_BLOCK = registerBlock("lead_block",
             new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK).sounds(BlockSoundGroup.METAL).strength(6.5F).resistance(5.0f)));
@@ -39,7 +39,7 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.GOLD_ORE).strength(4.0F), UniformIntProvider.create(0, 2)));
     public static final Block DEEPSLATE_SCHEELITE_ORE = registerBlock("deepslate_scheelite_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_GOLD_ORE).strength(5.0F), UniformIntProvider.create(1, 2)));
-    public static final Block RAW_SCHEELITE_BLOCK = registerBlock("raw_scheelite_block",
+    public static final Block SCHEELITE_BLOCK = registerBlock("raw_scheelite_block",
             new Block(FabricBlockSettings.copyOf(Blocks.RAW_GOLD_BLOCK).sounds(BlockSoundGroup.ANCIENT_DEBRIS).strength(5.0F)));
     public static final Block TUNGSTEN_BLOCK = registerBlock("tungsten_block",
             new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).sounds(BlockSoundGroup.METAL).resistance(800.0f)));

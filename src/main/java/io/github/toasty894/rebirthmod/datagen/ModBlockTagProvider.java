@@ -23,12 +23,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.SCHEELITE_ORE)
                 .add(ModBlocks.DEEPSLATE_SCHEELITE_ORE)
-                .add(ModBlocks.RAW_SCHEELITE_BLOCK)
+                .add(ModBlocks.SCHEELITE_BLOCK)
                 .add(ModBlocks.TUNGSTEN_BLOCK)
 
                 .add(ModBlocks.GALENA_ORE)
                 .add(ModBlocks.DEEPSLATE_GALENA_ORE)
-                .add(ModBlocks.RAW_GALENA_BLOCK)
+                .add(ModBlocks.GALENA_BLOCK)
                 .add(ModBlocks.LEAD_BLOCK);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
@@ -39,12 +39,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.GALENA_ORE)
                 .add(ModBlocks.DEEPSLATE_GALENA_ORE)
-                .add(ModBlocks.RAW_GALENA_BLOCK)
+                .add(ModBlocks.GALENA_BLOCK)
                 .add(ModBlocks.LEAD_BLOCK)
 
                 .add(ModBlocks.SCHEELITE_ORE)
                 .add(ModBlocks.DEEPSLATE_SCHEELITE_ORE)
-                .add(ModBlocks.RAW_SCHEELITE_BLOCK)
+                .add(ModBlocks.SCHEELITE_BLOCK)
                 .add(ModBlocks.TUNGSTEN_BLOCK);
     }
 }

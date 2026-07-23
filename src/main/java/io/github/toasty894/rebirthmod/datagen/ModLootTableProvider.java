@@ -23,13 +23,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider{
     public void generate() {
         addDrop(ModBlocks.RAW_PITCHBLENDE_BLOCK);
         addDrop(ModBlocks.PITCHBLENDE_BLOCK);
-        addDrop(ModBlocks.RAW_GALENA_BLOCK);
-        addDrop(ModBlocks.TUNGSTEN_BLOCK);
-        addDrop(ModBlocks.RAW_SCHEELITE_BLOCK);
+        addDrop(ModBlocks.GALENA_BLOCK);
+        addDrop(ModBlocks.LEAD_BLOCK);
+        addDrop(ModBlocks.SCHEELITE_BLOCK);
         addDrop(ModBlocks.TUNGSTEN_BLOCK);
 
         addDrop(ModBlocks.PITCHBLENDE_ORE,
-                clusterOreDrops(ModBlocks.PITCHBLENDE_ORE, ModItems.RAW_PITCHBLENDE));
+                oreDrops(ModBlocks.PITCHBLENDE_ORE, ModItems.RAW_PITCHBLENDE));
         addDrop(ModBlocks.DEEPSLATE_PITCHBLENDE_ORE,
                 clusterOreDrops(ModBlocks.DEEPSLATE_PITCHBLENDE_ORE, ModItems.RAW_PITCHBLENDE));
 
@@ -39,9 +39,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider{
                 clusterOreDrops(ModBlocks.DEEPSLATE_GALENA_ORE, ModItems.GALENA));
 
         addDrop(ModBlocks.SCHEELITE_ORE,
-                clusterOreDrops(ModBlocks.SCHEELITE_ORE, ModItems.SCHEELITE));
+                oreDrops(ModBlocks.SCHEELITE_ORE, ModItems.SCHEELITE));
         addDrop(ModBlocks.DEEPSLATE_SCHEELITE_ORE,
-                clusterOreDrops(ModBlocks.DEEPSLATE_SCHEELITE_ORE, ModItems.SCHEELITE));
+                oreDrops(ModBlocks.DEEPSLATE_SCHEELITE_ORE, ModItems.SCHEELITE));
     }
 
     public LootTable.Builder clusterOreDrops(Block drop, Item item) {

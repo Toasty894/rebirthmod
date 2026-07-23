@@ -1,4 +1,10 @@
 {
+  "item.rebirthmod.galena": "Galena",
+  "item.rebirthmod.lead_ingot": "Lead Ingot",
+
+  "item.rebirthmod.scheelite": "Scheelite",
+  "item.rebirthmod.tungsten_ingot": "Tungsten Ingot",
+
   "item.rebirthmod.raw_pitchblende": "Raw Pitchblende",
   "item.rebirthmod.pitchblende_ingot": "Pitchblende Ingot",
   "item.rebirthmod.yellow_cake": "Yellow Cake",
@@ -18,9 +24,21 @@
 
   "item.rebirthmod.geiger_counter": "Geiger Counter",
 
+  "item.rebirthmod.relic": "Relic",
+
   "item.rebirthmod.passion_fruit": "Passion Fruit",
   "item.rebirthmod.passion_fruit_juice": "Passion Fruit Juice",
   "block.rebirthmod.passion_fruit_cake": "Passion Fruit Cake",
+
+  "block.rebirthmod.galena_ore": "Galena Ore",
+  "block.rebirthmod.deepslate_galena_ore": "Deepslate Galena Ore",
+  "block.rebirthmod.galena_block": "Block of Galena",
+  "block.rebirthmod.lead_block": "Block of Lead",
+
+  "block.rebirthmod.scheelite_ore": "Scheelite Ore",
+  "block.rebirthmod.deepslate_scheelite_ore": "Deepslate Scheelite Ore",
+  "block.rebirthmod.scheelite_block": "Block of Scheelite",
+  "block.rebirthmod.tungsten_block": "Block of Tungsten",
 
   "block.rebirthmod.pitchblende_ore": "Pitchblende Ore",
   "block.rebirthmod.deepslate_pitchblende_ore": "Deepslate Pitchblende Ore",
@@ -33,6 +51,7 @@
   "itemgroup.rebirth_catalysts": "Rebirth Catalysts",
 
   "tooltip.rebirthmod.geiger_counter": "Detects radiation up to 64 blocks in your line of sight.",
+  "tooltip.rebirthmod.relic": "An relic from an ancient world - It can be studied in a §6Study Bench§7.",
   "tooltip.rebirthmod.passion_fruit_juice": "So refreshing and revitalizing.",
   "tooltip.rebirthmod.passion_fruit_cake": "A yummy yellow cake.",
   "tooltip.rebirthmod.hold_shift": "Press §6SHIFT§7 for details..."

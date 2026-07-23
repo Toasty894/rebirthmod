@@ -5,6 +5,5 @@ import net.fabricmc.api.ClientModInitializer;
 public class RebirthModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-
     }
 }
