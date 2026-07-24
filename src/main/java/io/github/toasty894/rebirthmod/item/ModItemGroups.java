@@ -57,7 +57,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_ACAI_LOG);
                         entries.add(ModBlocks.STRIPPED_ACAI_WOOD);
                         entries.add(ModBlocks.ACAI_PLANKS);
-                        entries.add(ModBlocks.ACAI_LEAVES);
                         entries.add(ModBlocks.ACAI_STAIRS);
                         entries.add(ModBlocks.ACAI_SLAB);
                         entries.add(ModBlocks.ACAI_BUTTON);
@@ -73,7 +72,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_CASHEW_LOG);
                         entries.add(ModBlocks.STRIPPED_CASHEW_WOOD);
                         entries.add(ModBlocks.CASHEW_PLANKS);
-                        entries.add(ModBlocks.CASHEW_LEAVES);
                         entries.add(ModBlocks.CASHEW_STAIRS);
                         entries.add(ModBlocks.CASHEW_SLAB);
                         entries.add(ModBlocks.CASHEW_BUTTON);
@@ -108,13 +106,25 @@ public class ModItemGroups {
 
                         //Natural items, food, plants and mobs
                         // Saplings & Plants
-                        entries.add(ModBlocks.ACAI_SAPLING);
-                        entries.add(ModBlocks.CASHEW_SAPLING);
-
                         // Food & Natural Items
+                        entries.add(ModBlocks.ACAI_LEAVES);
+                        entries.add(ModBlocks.ACAI_SAPLING);
+                        entries.add(ModItems.ACAI);
+                        entries.add(ModItems.ACAI_JUICE);
+
+                        entries.add(ModBlocks.CASHEW_LEAVES);
+                        entries.add(ModItems.CASHEW_NUT);
+                        entries.add(ModItems.CASHEW_FRUIT);
+                        entries.add(ModItems.CASHEW_APPLE);
+                        entries.add(ModItems.CASHEW_JUICE);
+
+                        entries.add(ModBlocks.PASSION_FRUIT_VINE);
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.PASSION_FRUIT_JUICE);
                         entries.add(ModBlocks.PASSION_FRUIT_CAKE);
+
+                        entries.add(ModItems.GUARANA);
+                        entries.add(ModItems.GUARANA_JUICE);
 
                     }).build());
 

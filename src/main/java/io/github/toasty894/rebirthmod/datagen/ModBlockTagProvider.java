@@ -98,5 +98,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.ACAI_PRESSURE_PLATE, ModBlocks.CASHEW_PRESSURE_PLATE);
 
         getOrCreateTagBuilder(BlockTags.SAPLINGS).add(ModBlocks.ACAI_SAPLING, ModBlocks.CASHEW_SAPLING);
+
+        // Climb
+        getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(ModBlocks.PASSION_FRUIT_VINE);
+
     }
 }

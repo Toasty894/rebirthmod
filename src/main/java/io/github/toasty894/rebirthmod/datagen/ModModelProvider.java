@@ -1,12 +1,20 @@
 package io.github.toasty894.rebirthmod.datagen;
 
 import io.github.toasty894.rebirthmod.block.ModBlocks;
+import io.github.toasty894.rebirthmod.block.custom.AcaiClusterBlock;
+import io.github.toasty894.rebirthmod.block.custom.GuaranaBushBlock;
 import io.github.toasty894.rebirthmod.datagen.util.ModelUtils;
 import io.github.toasty894.rebirthmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.util.Identifier;
+import net.minecraft.data.client.TextureMap;
+import net.minecraft.data.client.VariantSettings;
+import net.minecraft.data.client.BlockStateVariant;
+import net.minecraft.data.client.VariantsBlockStateSupplier;
+import net.minecraft.data.client.BlockStateVariantMap;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -30,6 +38,43 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCHEELITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNGSTEN_BLOCK);
 
+        // Guarana
+        var guaranaAgeMap = BlockStateVariantMap.create(GuaranaBushBlock.AGE);
+
+        for (int age = 0; age <= 7; age++) {
+            Identifier textureId = new Identifier("rebirthmod", "block/guarana_bush_stage" + age);
+
+            Identifier modelId = Models.CROSS.upload(
+                    ModBlocks.GUARANA_BUSH,
+                    "_stage" + age,
+                    TextureMap.cross(textureId),
+                    blockStateModelGenerator.modelCollector
+            );
+
+            guaranaAgeMap.register(age, BlockStateVariant.create().put(VariantSettings.MODEL, modelId));
+        }
+
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.GUARANA_BUSH).coordinate(guaranaAgeMap));
+
+        var acaiAgeMap = BlockStateVariantMap.create(AcaiClusterBlock.AGE);
+
+        for (int age = 0; age <= 3; age++) {
+            Identifier textureId = new Identifier("rebirthmod", "block/acai_cluster_stage" + age);
+
+            Identifier modelId = Models.CROSS.upload(
+                    ModBlocks.ACAI_CLUSTER,
+                    "_stage" + age,
+                    TextureMap.cross(textureId),
+                    blockStateModelGenerator.modelCollector
+            );
+
+            acaiAgeMap.register(age, BlockStateVariant.create().put(VariantSettings.MODEL, modelId));
+        }
+
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.ACAI_CLUSTER).coordinate(acaiAgeMap));
+
         // ACAI WOOD
         blockStateModelGenerator.registerLog(ModBlocks.ACAI_LOG).log(ModBlocks.ACAI_LOG).wood(ModBlocks.ACAI_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_ACAI_LOG).log(ModBlocks.STRIPPED_ACAI_LOG).wood(ModBlocks.STRIPPED_ACAI_WOOD);
@@ -45,6 +90,7 @@ public class ModModelProvider extends FabricModelProvider {
         ModelUtils.registerDoor(blockStateModelGenerator, ModBlocks.ACAI_DOOR);
         ModelUtils.registerTrapdoor(blockStateModelGenerator, ModBlocks.ACAI_TRAPDOOR);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.ACAI_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+
 
         // CASHEW WOOD
         blockStateModelGenerator.registerLog(ModBlocks.CASHEW_LOG).log(ModBlocks.CASHEW_LOG).wood(ModBlocks.CASHEW_WOOD);
@@ -90,14 +136,24 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.GEIGER_COUNTER, Models.HANDHELD);
 
+        itemModelGenerator.register(ModBlocks.PASSION_FRUIT_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.PASSION_FRUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.PASSION_FRUIT_JUICE, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.PASSION_FRUIT_CAKE.asItem(), Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.RELIC.asItem(), Models.GENERATED);
-
         itemModelGenerator.register(ModBlocks.ACAI_SAPLING.asItem(), Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.CASHEW_SAPLING.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.ACAI, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ACAI_JUICE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.CASHEW_NUT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CASHEW_FRUIT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CASHEW_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CASHEW_JUICE, Models.GENERATED);
+
+        itemModelGenerator.register(ModBlocks.GUARANA_BUSH.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.GUARANA_JUICE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.RELIC.asItem(), Models.GENERATED);
     }
 }
 

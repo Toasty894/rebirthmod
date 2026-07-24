@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/vine",
+  "textures": {
+    "vine": "rebirthmod:block/passion_fruit_vine_stage05"
+  }
+}

@@ -91,6 +91,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         // CASHEW WOOD RECIPES
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CASHEW_APPLE, 1)
+                .input(ModItems.CASHEW_FRUIT)
+                .criterion(hasItem(ModItems.CASHEW_FRUIT), conditionsFromItem(ModItems.CASHEW_FRUIT))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CASHEW_APPLE) + "_from_cashew_fruit"));
+
         // All Log/Wood variants -> 4 Planks
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CASHEW_PLANKS, 4)
                 .input(ModBlocks.CASHEW_LOG)
@@ -134,6 +139,44 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createTrapdoorRecipe(ModBlocks.CASHEW_TRAPDOOR, Ingredient.ofItems(ModBlocks.CASHEW_PLANKS))
                 .criterion(hasItem(ModBlocks.CASHEW_PLANKS), conditionsFromItem(ModBlocks.CASHEW_PLANKS))
                 .offerTo(exporter);
+
+
+        // Juices
+        // Cashew Juice
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CASHEW_JUICE, 1)
+                .pattern("F")
+                .pattern("B")
+                .input('F', ModItems.CASHEW_FRUIT)
+                .input('B', Items.GLASS_BOTTLE)
+                .criterion(hasItem(ModItems.CASHEW_FRUIT), conditionsFromItem(ModItems.CASHEW_FRUIT))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CASHEW_JUICE) + "_from_fruit"));
+
+        // From the Cashew Apple
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CASHEW_JUICE, 1)
+                .pattern("F")
+                .pattern("B")
+                .input('F', ModItems.CASHEW_APPLE)
+                .input('B', Items.GLASS_BOTTLE)
+                .criterion(hasItem(ModItems.CASHEW_APPLE), conditionsFromItem(ModItems.CASHEW_APPLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CASHEW_JUICE) + "_from_apple"));
+
+        // Acai Juice
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ACAI_JUICE, 1)
+                .pattern("A")
+                .pattern("B")
+                .input('A', ModItems.ACAI)
+                .input('B', Items.GLASS_BOTTLE)
+                .criterion(hasItem(ModItems.ACAI), conditionsFromItem(ModItems.ACAI))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ACAI_JUICE)));
+
+        // Passion Fruit Juice (Passion Fruit top, Glass Bottle bottom)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PASSION_FRUIT_JUICE, 1)
+                .pattern("F")
+                .pattern("B")
+                .input('F', ModItems.PASSION_FRUIT)
+                .input('B', Items.GLASS_BOTTLE)
+                .criterion(hasItem(ModItems.PASSION_FRUIT), conditionsFromItem(ModItems.PASSION_FRUIT))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.PASSION_FRUIT_JUICE)));
 
         // Pitchblende recipes
         offerSmelting(exporter, PITCHBLENDE_SMELTABLES, RecipeCategory.MISC, ModItems.PITCHBLENDE_INGOT,
@@ -196,14 +239,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PASSION_FRUIT), conditionsFromItem(ModItems.PASSION_FRUIT))
                 .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.PASSION_FRUIT_CAKE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PASSION_FRUIT_JUICE, 1)
-                .pattern("F")
-                .pattern("P")
-                .input('F', ModItems.PASSION_FRUIT)
-                .input('P', Items.POTION)
-                .criterion(hasItem(ModItems.PASSION_FRUIT), conditionsFromItem(ModItems.PASSION_FRUIT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.PASSION_FRUIT_JUICE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PITCHBLENDE_SWORD, 1)
                 .pattern("P")

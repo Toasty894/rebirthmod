@@ -26,6 +26,12 @@ public class RebirthModClient implements ClientModInitializer {
             return FoliageColors.getDefaultColor();
         }, ModBlocks.ACAI_LEAVES, ModBlocks.CASHEW_LEAVES);
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ACAI_CLUSTER, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GUARANA_BUSH, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PASSION_FRUIT_VINE, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 ModBlocks.ACAI_DOOR,
                 ModBlocks.ACAI_TRAPDOOR,

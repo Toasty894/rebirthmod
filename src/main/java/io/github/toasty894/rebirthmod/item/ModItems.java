@@ -1,6 +1,8 @@
 package io.github.toasty894.rebirthmod.item;
 
 import io.github.toasty894.rebirthmod.RebirthMod;
+import io.github.toasty894.rebirthmod.block.ModBlocks;
+import io.github.toasty894.rebirthmod.item.custom.CashewFruitItem;
 import io.github.toasty894.rebirthmod.item.custom.GeigerCounterItem;
 import io.github.toasty894.rebirthmod.item.custom.PassionFruitJuiceItem;
 import io.github.toasty894.rebirthmod.item.custom.RelicItem;
@@ -50,10 +52,38 @@ public class ModItems {
     public static final Item URANIUM = registerItem("uranium", new Item(new FabricItemSettings()));
     public static final Item URANIUM_235 = registerItem("uranium_235", new Item(new FabricItemSettings()));
 
+
+    public static final Item ACAI = registerItem("acai",
+            new AliasedBlockItem(ModBlocks.ACAI_CLUSTER, new FabricItemSettings()
+                    .food(ModFoodComponents.ACAI)));
+
+    public static final Item CASHEW_NUT = registerItem("cashew_nut",
+            new BlockItem(ModBlocks.CASHEW_SAPLING, new FabricItemSettings()));
+    public static final Item CASHEW_APPLE = registerItem("cashew_apple",
+            new CashewFruitItem(new FabricItemSettings().food(ModFoodComponents.CASHEW_APPLE)));
+    public static final Item CASHEW_FRUIT = registerItem("cashew_fruit",
+            new CashewFruitItem(new FabricItemSettings()
+                    .food(ModFoodComponents.CASHEW_APPLE)
+                    .recipeRemainder(ModItems.CASHEW_NUT)));
+
     public static final Item PASSION_FRUIT = registerItem("passion_fruit",
             new Item(new FabricItemSettings().food(ModFoodComponents.PASSION_FRUIT)));
+
+    public static final Item GUARANA = registerItem("guarana",
+            new BlockItem(ModBlocks.GUARANA_BUSH, new FabricItemSettings()));
+
     public static final Item PASSION_FRUIT_JUICE = registerItem("passion_fruit_juice",
-            new PassionFruitJuiceItem(new FabricItemSettings().maxCount(16).food(ModFoodComponents.PASSION_FRUIT_JUICE)));
+            new PassionFruitJuiceItem(new FabricItemSettings().maxCount(16).food(ModFoodComponents.PASSION_FRUIT_JUICE)
+                    .recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item ACAI_JUICE = registerItem("acai_juice",
+            new PassionFruitJuiceItem(new FabricItemSettings().maxCount(16).food(ModFoodComponents.ACAI_JUICE)
+                    .recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item CASHEW_JUICE = registerItem("cashew_juice",
+            new PassionFruitJuiceItem(new FabricItemSettings().maxCount(16).food(ModFoodComponents.CASHEW_JUICE)
+                    .recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item GUARANA_JUICE = registerItem("guarana_juice",
+            new PassionFruitJuiceItem(new FabricItemSettings().maxCount(16).food(ModFoodComponents.GUARANA_JUICE)
+                    .recipeRemainder(Items.GLASS_BOTTLE)));
 
 
     private static Item registerItem(String name, Item item) {

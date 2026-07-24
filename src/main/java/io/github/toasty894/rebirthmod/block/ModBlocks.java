@@ -1,8 +1,12 @@
 package io.github.toasty894.rebirthmod.block;
 
 import io.github.toasty894.rebirthmod.RebirthMod;
+import io.github.toasty894.rebirthmod.block.custom.AcaiClusterBlock;
+import io.github.toasty894.rebirthmod.block.custom.GuaranaBushBlock;
 import io.github.toasty894.rebirthmod.block.custom.PassionFruitCakeBlock;
-import io.github.toasty894.rebirthmod.world.tree.DummySaplingGenerator;
+import io.github.toasty894.rebirthmod.block.custom.PassionFruitVineBlock;
+import io.github.toasty894.rebirthmod.world.tree.AcaiSaplingGenerator;
+import io.github.toasty894.rebirthmod.world.tree.CashewSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -46,6 +50,12 @@ public class ModBlocks {
     public static final Block PASSION_FRUIT_CAKE = registerBlock("passion_fruit_cake",
             new PassionFruitCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
 
+    public static final Block PASSION_FRUIT_VINE = registerBlock("passion_fruit_vine",
+            new PassionFruitVineBlock(FabricBlockSettings.create()
+                    .noCollision()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.CAVE_VINES)));
+
     public static final Block ACAI_LOG = registerBlock("acai_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
     public static final Block ACAI_WOOD = registerBlock("acai_wood",
@@ -80,9 +90,14 @@ public class ModBlocks {
     public static final Block ACAI_TRAPDOOR = registerBlock("acai_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
 
-    // Fix Later
     public static final Block ACAI_SAPLING = registerBlock("acai_sapling",
-            new SaplingBlock(new DummySaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+            new SaplingBlock(new AcaiSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+    public static final Block ACAI_CLUSTER = Registry.register(Registries.BLOCK,
+            new Identifier(RebirthMod.MOD_ID, "acai_cluster"),
+            new AcaiClusterBlock(FabricBlockSettings.create()
+                    .noCollision()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.CAVE_VINES)));
 
     public static final Block CASHEW_LOG = registerBlock("cashew_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
@@ -118,9 +133,16 @@ public class ModBlocks {
     public static final Block CASHEW_TRAPDOOR = registerBlock("cashew_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR), BlockSetType.OAK));
 
-    // Fix Later
-    public static final Block CASHEW_SAPLING = registerBlock("cashew_sapling",
-            new SaplingBlock(new DummySaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+    public static final Block CASHEW_SAPLING = Registry.register(Registries.BLOCK,
+            new Identifier(RebirthMod.MOD_ID, "cashew_sapling"),
+            new SaplingBlock(new CashewSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).noCollision().breakInstantly()));
+
+    public static final Block GUARANA_BUSH = Registry.register(Registries.BLOCK,
+            new Identifier(RebirthMod.MOD_ID, "guarana_bush"),
+            new GuaranaBushBlock(FabricBlockSettings.create()
+                    .noCollision()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

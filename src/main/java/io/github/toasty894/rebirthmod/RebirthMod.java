@@ -7,6 +7,7 @@ import io.github.toasty894.rebirthmod.radiation.RadiationRegistry;
 import io.github.toasty894.rebirthmod.sound.ModSounds;
 import io.github.toasty894.rebirthmod.util.ModLootTableModifiers;
 import io.github.toasty894.rebirthmod.world.gen.ModWorldGeneration;
+import io.github.toasty894.rebirthmod.world.tree.decorator.AcaiClusterTreeDecorator;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -36,6 +37,8 @@ public class RebirthMod implements ModInitializer {
 		ModWorldGeneration.generateModWorldGen();
 
 		ModLootTableModifiers.modifyLootTables();
+
+		AcaiClusterTreeDecorator.register();
 
 		StrippableBlockRegistry.register(ModBlocks.ACAI_LOG, ModBlocks.STRIPPED_ACAI_LOG);
 		StrippableBlockRegistry.register(ModBlocks.ACAI_WOOD, ModBlocks.STRIPPED_ACAI_WOOD);
